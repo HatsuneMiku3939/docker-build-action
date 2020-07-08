@@ -1,0 +1,16 @@
+name: 'docker-build'
+description: 'build & push docker image'
+inputs:
+  docker_context:
+    description: 'Docker context path'
+    required: true
+    default: '.'
+  dockerfile:
+    description: 'Dockerfile path'
+    required: true
+    default: 'Dockerfile'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.dockerfile }} ${{ inputs.docker_context }}
