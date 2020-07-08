@@ -13,4 +13,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.dockerfile }} ${{ inputs.docker_context }}
+    - ${{ inputs.dockerfile }}
+    - ${{ inputs.docker_context }}
