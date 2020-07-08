@@ -11,6 +11,7 @@ DOCKER_REGISTRY_PASSWORD=$7
 
 
 DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG/refs\/heads\/}
+DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG/refs\/tags\/}
 if [[ "$DOCKER_IMAGE_TAG" = "master" ]]; then
 	DOCKER_IMAGE_TAG="latest"
 fi
