@@ -2,16 +2,30 @@ name: 'docker-build'
 description: 'build & push docker image'
 inputs:
   docker_context:
-    description: 'Docker context path'
     required: true
     default: '.'
   dockerfile:
-    description: 'Dockerfile path'
     required: true
     default: 'Dockerfile'
+  docker_image:
+    required: true
+  docker_image_tag:
+    required: true
+  docker_registry_host:
+    required: true
+    default: 'docker.io'
+  docker_registry_username:
+    required: true
+  docker_registry_password:
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.dockerfile }}
     - ${{ inputs.docker_context }}
+    - ${{ inputs.docker_image }}
+    - ${{ inputs.docker_image_tag }}
+    - ${{ inputs.docker_registry_host }}
+    - ${{ inputs.docker_registry_username }}
+    - ${{ inputs.docker_registry_password }}
